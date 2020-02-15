@@ -6,7 +6,7 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:05:47 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/15 18:16:31 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/15 18:35:03 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_exec_rule_1(int **solution, int i, int j)
 	{
 		while (n < 5)
 		{
-			solution[5 - n][j] = n; // 5 - n because we are starting from the last row
+			solution[4 - n][j] = n; // 5 - n because we are starting from the last row
 			n++;
 		}
 	}
@@ -49,7 +49,7 @@ void	ft_exec_rule_1(int **solution, int i, int j)
 	{
 		while (n < 5)
 		{
-			solution[j][5 - n] = n; // same justification as above
+			solution[j][4 - n] = n; // same justification as above
 			n++;
 		}
 	}

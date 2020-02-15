@@ -83,11 +83,18 @@ int main()
 		{2, 4, 1, 3}
 	};
 
+	int test3[4][4] =
+	{
+		{2, 2, 2, 1},
+		{1, 2, 3, 4},
+		{2, 2, 2, 1},
+		{1, 2, 3, 4}
+	};
 
-	ft_print_arr(test2);
+	ft_print_arr(test3);
 	write(1, "\n", 1);
 	write(1, "\n", 1);
 	int **solution;
-	solution = ft_solve(test2);
+	solution = ft_solve(test3);
 	ft_print_pt(solution);
 }
