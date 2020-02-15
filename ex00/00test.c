@@ -59,17 +59,35 @@ int main()
 	// ft_initialize_pt(solution);
 	// ft_print_pt(solution);
 
-	int read_in[4][4] =
+	int test1[4][4] =
 	{
 		{4, 3, 2, 1},
 		{1, 2, 2, 2},
 		{4, 3, 2, 1},
 		{1, 2, 2, 2}
 	};
-	ft_print_arr(read_in);
+
+	int test2[4][4] =
+	{
+		{1, 3, 2, 3},
+		{3, 1, 3, 2},
+		{1, 3, 2, 2},
+		{3, 2, 1, 2}
+	};
+
+	int t2_expected_output[4][4] =
+	{
+		{4, 2, 3, 1},
+		{1, 3, 4, 2},
+		{3, 1, 2, 4},
+		{2, 4, 1, 3}
+	};
+
+
+	ft_print_arr(test2);
 	write(1, "\n", 1);
 	write(1, "\n", 1);
 	int **solution;
-	solution = ft_solve(read_in);
+	solution = ft_solve(test2);
 	ft_print_pt(solution);
 }
