@@ -6,11 +6,12 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 13:53:04 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/15 16:07:17 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/15 16:32:18 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
+#include <stdlib.h>
 
 // give a row index and a number, this function checks whether the number appears on the row
 // returns true if the number does appear, false if the number does not appear
@@ -58,9 +59,12 @@ bool	ft_check_col(int solution[4][4], int col, int n)
 
 int		**ft_possible(int solution[4][4], int row, int col)
 {
-	int possible[2][4];
+	int **possible;
 	int n;
 
+	possible = malloc(2 * 8);
+	possible[0] = malloc(4 * 4);
+	possible[1] = malloc(4 * 4);
 	n = 1;
 	while (n < 5)
 	{
