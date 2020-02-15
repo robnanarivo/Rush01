@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_print_pt.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 12:28:45 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/15 15:59:59 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/15 17:07:09 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char	ft_ntoi(int n)
-{
-	char asc_val;
-
-	asc_val = n + '0';
-	return (asc_val);
-}
-
-void	ft_print(int arr[4][4])
+void	ft_print_pt(int **arr)
 {
 	int		i;
 	int		j;
@@ -32,7 +24,7 @@ void	ft_print(int arr[4][4])
 	{
 		while (j < 4)
 		{
-			to_print = ft_ntoi(arr[i][j]);
+			to_print = arr[i][j] + '0';
 			write(1, &to_print, 1);
 			if (j < 3)
 			{
