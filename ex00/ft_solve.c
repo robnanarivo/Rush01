@@ -6,7 +6,7 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 13:53:04 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/16 15:48:40 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/16 15:53:43 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ bool	ft_get_solution(int read_in[4][4], int **solution) // the backtraking algor
 			if (ft_get_solution(read_in, solution))
 			{
 				if (ft_rule_3(solution, read_in))
-				{
 					return (true);
-				}
 			}
 			solution[i][j] = 0;
 		}

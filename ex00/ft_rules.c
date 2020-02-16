@@ -6,7 +6,7 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:05:47 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/16 15:46:36 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/16 16:02:50 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,7 @@ bool	ft_rule_2(int **solution, int row, int column, int n)
 }
 
 // rule 3: number cannot violated the specified rules for the sides
-
-bool	ft_check_col_up(int **solution, int read_in[4][4])
+bool	ft_check_col_down(int **solution, int read_in[4][4])
 {
 	int max;
 	int counter;
@@ -120,7 +119,7 @@ bool	ft_check_col_up(int **solution, int read_in[4][4])
 		{
 			if (i < 3)
 			{
-				if (solution[i][j] < solution[i + 1][j])
+				if (max < solution[i + 1][j])
 				{
 					max = solution[i + 1][j];
 					counter++;
@@ -136,9 +135,10 @@ bool	ft_check_col_up(int **solution, int read_in[4][4])
 		j++;
 	}
 	return (true);
+
 }
 
-bool	ft_check_col_down(int **solution, int read_in[4][4])
+bool	ft_check_col_up(int **solution, int read_in[4][4])
 {
 	int max;
 	int counter;
@@ -155,7 +155,7 @@ bool	ft_check_col_down(int **solution, int read_in[4][4])
 		{
 			if (i > 0)
 			{
-				if (solution[i][j] < solution[i - 1][j])
+				if (max < solution[i - 1][j])
 				{
 					max = solution[i - 1][j];
 					counter++;
@@ -167,7 +167,7 @@ bool	ft_check_col_down(int **solution, int read_in[4][4])
 		{
 			return (false);
 		}
-		i = 0;
+		i = 3;
 		j++;
 	}
 	return (true);
@@ -190,7 +190,7 @@ bool	ft_check_row_left(int **solution, int read_in[4][4])
 		{
 			if (j < 3)
 			{
-				if (solution[i][j] < solution[i][j + 1])
+				if (max < solution[i][j + 1])
 				{
 					max = solution[i][j + 1];
 					counter++;
@@ -225,7 +225,7 @@ bool	ft_check_row_right(int **solution, int read_in[4][4])
 		{
 			if (j > 0)
 			{
-				if (solution[i][j] < solution[i][j - 1])
+				if (max < solution[i][j - 1])
 				{
 					max = solution[i][j - 1];
 					counter++;
@@ -237,7 +237,7 @@ bool	ft_check_row_right(int **solution, int read_in[4][4])
 		{
 			return (false);
 		}
-		j = 0;
+		j = 3;
 		i++;
 	}
 	return (true);

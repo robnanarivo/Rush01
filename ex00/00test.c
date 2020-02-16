@@ -90,11 +90,19 @@ int main()
 		{2, 2, 2, 1},
 		{1, 2, 3, 4}
 	};
+	
+	int test4[4][4] =
+	{
+		{4, 4, 4, 1},
+		{1, 2, 2, 2},
+		{4, 3, 2, 1},
+		{1, 2, 2, 2}
+	};
 
-	ft_print_arr(test3);
+	ft_print_arr(test1);
 	write(1, "\n", 1);
 	int **solution;
-	solution = ft_solve(test3);
+	solution = ft_solve(test1);
 	write(1, "\n", 1);
 	ft_print_pt(solution);
 }
