@@ -6,7 +6,7 @@
 /*   By: qiuxi <qiuxi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 13:53:04 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/16 11:20:19 by qiuxi            ###   ########.fr       */
+/*   Updated: 2020/02/16 11:38:10 by qiuxi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,22 @@ bool	ft_filled(int **solution, int *pt_i, int *pt_j) // check whether the board 
 	{
 		while (*pt_j < 4)
 		{
+			// write(1, "here", 4);
 			if (solution[*pt_i][*pt_j] == 0)
 			{
 				return (false);
 			}
-			*pt_j++;
+			*pt_j = *pt_j + 1;
 		}
 		*pt_j = 0;
-		*pt_i++;
+		*pt_i = *pt_i + 1;
 	}
 	return (true);
 }
 
-bool	ft_check_valid (int **solution, int n, int i, int j)
+bool	ft_check_valid (int **solution, int i, int j, int n)
 {
-	if (!ft_rule_2() || !ft_rule_3()) // rule 2 or rule 3 is violated, return false
+	if (!ft_rule_2(solution, i, j, n)) // rule 2 or rule 3 is violated, return false
 	{
 		return (false);
 	}
@@ -46,11 +47,10 @@ bool	ft_check_valid (int **solution, int n, int i, int j)
 	{
 		return (true);
 	}
-	
 }
 
 
-bool	**ft_get_solution(int read_in[4][4], int **solution) // the backtraking algorithm here!
+bool	ft_get_solution(int read_in[4][4], int **solution) // the backtraking algorithm here!
 {
 	int n;
 	int i;
@@ -94,6 +94,7 @@ int		**ft_solve(int read_in[4][4])
 	}
 	ft_initialize_pt(solution);
 	ft_rule_1(read_in, solution);
+	write(1, "getting sol\n", 12);
 	if (ft_get_solution(read_in, solution))
 	{
 		return (solution);

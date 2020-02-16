@@ -6,7 +6,7 @@
 /*   By: qiuxi <qiuxi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:05:47 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/16 11:20:43 by qiuxi            ###   ########.fr       */
+/*   Updated: 2020/02/16 11:28:41 by qiuxi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,27 @@ void	ft_rule_1(int read_in[4][4], int **solution)
 
 
 // rule 2: boxes with the same height cannot be on the same row or column
-bool	ft_rule_2()
+bool	ft_rule_2(int **solution, int row, int column, int n)
 {
+	int **possible;
+
+	possible = ft_possible(solution, row, column);
+	if (possible[0][n - 1] == 1 && possible[1][n - 1] == 1)
+	{
+		return (true);
+	}
+	else
+	{
+		return (false);
+	}
 	
 }
 
 // rule 3: number cannot violated the specified rules for the sides
-bool	ft_rule_3()
-{
+// bool	ft_rule_3()
+// {
 	
-}
+// }
 
 
 

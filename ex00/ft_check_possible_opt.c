@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_possible_opt.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qiuxi <qiuxi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:07:29 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/15 18:09:42 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/16 11:25:11 by qiuxi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // give a row index and a number, this function checks whether the number appears on the row
 // returns true if the number does appear, false if the number does not appear
 
-bool	ft_check_row(int solution[4][4], int row, int n)
+bool	ft_check_row(int **solution, int row, int n)
 {
 	int j;
 
@@ -35,7 +35,7 @@ bool	ft_check_row(int solution[4][4], int row, int n)
 // give a column index and a number, this function checks whether the number appears on the column
 // returns true if the number does appear, false if the number does not appear
 
-bool	ft_check_col(int solution[4][4], int col, int n)
+bool	ft_check_col(int **solution, int col, int n)
 {
 	int i;
 
@@ -57,7 +57,7 @@ bool	ft_check_col(int solution[4][4], int col, int n)
 // possible[0] lists whether the numbers are used on the same row, while possible[1] lists whether the numbers are used on the same column
 // 0 means the number is used, while 1 means the number is not used
 
-int		**ft_possible(int solution[4][4], int row, int col)
+int		**ft_possible(int **solution, int row, int col)
 {
 	int **possible;
 	int n;
