@@ -5,7 +5,7 @@
 
 #include "ft_solve.c"
 #include "ft_print_arr.c"
-#include "ft_print_pt.c"
+// #include "ft_print_pt.c"
 #include "ft_initialize_arr.c"
 
 
@@ -91,10 +91,10 @@ int main()
 		{1, 2, 3, 4}
 	};
 
-	ft_print_arr(test3);
-	write(1, "\n", 1);
+	ft_print_arr(test2);
 	write(1, "\n", 1);
 	int **solution;
-	solution = ft_solve(test3);
+	solution = ft_solve(test2);
+	write(1, "\n", 1);
 	ft_print_pt(solution);
 }
