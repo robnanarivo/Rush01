@@ -6,7 +6,7 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 13:53:04 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/16 15:03:30 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/16 15:48:40 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ bool	ft_filled(int **solution, int *pt_i, int *pt_j) // check whether the board 
 
 bool	ft_check_valid (int **solution, int i, int j, int n)
 {
-	if (ft_rule_2(solution, i, j, n)) // rule 2 or rule 3 is violated, return false
+	if (ft_rule_2(solution, i, j, n)) // rule 2 or rule 3 is not violated, return true
 	{
 		return (true);
 	}
-	else // otherwise, return true
+	else // otherwise, return false
 	{
 		return (false);
 	}
@@ -73,7 +73,10 @@ bool	ft_get_solution(int read_in[4][4], int **solution) // the backtraking algor
 			solution[i][j] = n;
 			if (ft_get_solution(read_in, solution))
 			{
-				return (true);
+				if (ft_rule_3(solution, read_in))
+				{
+					return (true);
+				}
 			}
 			solution[i][j] = 0;
 		}
@@ -81,9 +84,6 @@ bool	ft_get_solution(int read_in[4][4], int **solution) // the backtraking algor
 	}
 	return (false);
 }
-
-
-
 
 int		**ft_solve(int read_in[4][4])
 {

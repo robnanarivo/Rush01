@@ -91,10 +91,10 @@ int main()
 		{1, 2, 3, 4}
 	};
 
-	ft_print_arr(test2);
+	ft_print_arr(test3);
 	write(1, "\n", 1);
 	int **solution;
-	solution = ft_solve(test2);
+	solution = ft_solve(test3);
 	write(1, "\n", 1);
 	ft_print_pt(solution);
 }

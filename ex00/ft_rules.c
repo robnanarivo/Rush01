@@ -6,7 +6,7 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:05:47 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/16 15:03:44 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/16 15:46:36 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,157 @@ bool	ft_rule_2(int **solution, int row, int column, int n)
 }
 
 // rule 3: number cannot violated the specified rules for the sides
-bool	ft_rule_3()
+
+bool	ft_check_col_up(int **solution, int read_in[4][4])
 {
-	
+	int max;
+	int counter;
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (j < 4)
+	{
+		max = solution[i][j];
+		counter = 1;
+		while (i < 4)
+		{
+			if (i < 3)
+			{
+				if (solution[i][j] < solution[i + 1][j])
+				{
+					max = solution[i + 1][j];
+					counter++;
+				}
+			}
+			i++;
+		}
+		if (counter != read_in[0][j])
+		{
+			return (false);
+		}
+		i = 0;
+		j++;
+	}
+	return (true);
+}
+
+bool	ft_check_col_down(int **solution, int read_in[4][4])
+{
+	int max;
+	int counter;
+	int i;
+	int j;
+
+	i = 3;
+	j = 0;
+	while (j < 4)
+	{
+		max = solution[i][j];
+		counter = 1;
+		while (i >= 0)
+		{
+			if (i > 0)
+			{
+				if (solution[i][j] < solution[i - 1][j])
+				{
+					max = solution[i - 1][j];
+					counter++;
+				}
+			}
+			i--;
+		}
+		if (counter != read_in[1][j])
+		{
+			return (false);
+		}
+		i = 0;
+		j++;
+	}
+	return (true);
+}
+
+bool	ft_check_row_left(int **solution, int read_in[4][4])
+{
+	int max;
+	int counter;
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (i < 4)
+	{
+		max = solution[i][j];
+		counter = 1;
+		while (j < 4)
+		{
+			if (j < 3)
+			{
+				if (solution[i][j] < solution[i][j + 1])
+				{
+					max = solution[i][j + 1];
+					counter++;
+				}
+			}
+			j++;
+		}
+		if (counter != read_in[2][i])
+		{
+			return (false);
+		}
+		j = 0;
+		i++;
+	}
+	return (true);
+}
+
+bool	ft_check_row_right(int **solution, int read_in[4][4])
+{
+	int max;
+	int counter;
+	int i;
+	int j;
+
+	i = 0;
+	j = 3;
+	while (i < 4)
+	{
+		max = solution[i][j];
+		counter = 1;
+		while (j >= 0)
+		{
+			if (j > 0)
+			{
+				if (solution[i][j] < solution[i][j - 1])
+				{
+					max = solution[i][j - 1];
+					counter++;
+				}
+			}
+			j--;
+		}
+		if (counter != read_in[3][i])
+		{
+			return (false);
+		}
+		j = 0;
+		i++;
+	}
+	return (true);
+}
+
+bool	ft_rule_3(int **solution, int read_in[4][4])
+{
+	if (ft_check_col_down(solution, read_in) && ft_check_col_up(solution, read_in) && ft_check_row_left(solution, read_in) && ft_check_row_right(solution, read_in))
+	{
+		return (true);
+	}
+	else
+	{
+		return (false);
+	}
 }
 
 
