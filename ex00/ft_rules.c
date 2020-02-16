@@ -6,11 +6,12 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 18:05:47 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/15 18:35:03 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/15 21:06:41 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdbool.h>
 
 #include "ft_check_possible_opt.c"
 
@@ -83,9 +84,17 @@ void	ft_rule_1(int read_in[4][4], int **solution)
 }
 
 
-// rule 2: 
+// rule 2: boxes with the same height cannot be on the same row or column
+bool	ft_rule_2()
+{
+	
+}
 
-
+// rule 3: number cannot violated the specified rules for the sides
+bool	ft_rule_3()
+{
+	
+}
 
 
 

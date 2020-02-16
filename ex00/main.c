@@ -6,12 +6,12 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 10:59:29 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/15 15:03:01 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/15 19:31:22 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_initialize.c"
-#include "ft_print.c"
+#include "ft_initialize_arr.c"
+#include "ft_print_arr.c"
 
 int		main(int argc, char *argv[])
 {
