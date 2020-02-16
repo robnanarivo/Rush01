@@ -6,24 +6,37 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 10:59:29 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/15 19:31:22 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/16 18:35:43 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_initialize_arr.c"
-#include "ft_print_arr.c"
+#include <unistd.h>
+
+void	ft_print_pt(int **arr);
+void	ft_initialize_arr(int arr[4][4]);
+int		ft_check_input_error1(int argc, char *argv[]);
+void	ft_read(char *str, int read_in[4][4]);
+int		**ft_solve(int read_in[4][4]);
 
 int		main(int argc, char *argv[])
 {
 	int read_in[4][4];
-	int to_print[4][4];
+	int **solution;
 	int error_flag;
-	
+
+	ft_initialize_arr(read_in);
 	error_flag = 0;
-	ft_initialize(read_in);
-	ft_initialize(to_print);
-	// ft_read(int argc, char *argv[]); // changes read_in
-	// ft_solve(int read_in[][]); // changes to_print
-	ft_print(read_in);
+	error_flag = ft_check_input_error1(argc, argv);
+	if (error_flag != 0)
+		return (0);
+	ft_read(argv[1], read_in);
+	solution = ft_solve(read_in);
+	if (solution[0][0] == 0)
+	{
+		write(1, "Error", 5);
+		write(1, "\n", 1);
+		return (0);
+	}
+	ft_print_pt(solution);
 	return (0);
 }

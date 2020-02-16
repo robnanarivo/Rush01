@@ -6,32 +6,29 @@
 /*   By: xqiu <xqiu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 13:53:04 by xqiu              #+#    #+#             */
-/*   Updated: 2020/02/16 15:53:43 by xqiu             ###   ########.fr       */
+/*   Updated: 2020/02/16 17:24:18 by xqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdbool.h>
 
-// #include "ft_print_pt.c"
+bool	ft_filled(int **solution, int *pt_i, int *pt_j);
+void	ft_initialize_pt(int **arr);
+void	ft_rule_1(int read_in[4][4], int **solution);
+bool	ft_rule_2(int **solution, int row, int column, int n);
+bool	ft_rule_3(int **solution, int read_in[4][4]);
 
-#include "ft_initialize_pt.c"
-#include "ft_rules.c"
-
-bool	ft_filled(int **solution, int *pt_i, int *pt_j) // check whether the board is filled
+bool	ft_filled(int **solution, int *pt_i, int *pt_j)
 {
 	*pt_i = 0;
 	*pt_j = 0;
-
-	char i;
 	while (*pt_i < 4)
 	{
 		while (*pt_j < 4)
 		{
 			if (solution[*pt_i][*pt_j] == 0)
 			{
-				
-				i = *pt_i + '0';
 				return (false);
 			}
 			*pt_j = *pt_j + 1;
@@ -42,27 +39,26 @@ bool	ft_filled(int **solution, int *pt_i, int *pt_j) // check whether the board 
 	return (true);
 }
 
-bool	ft_check_valid (int **solution, int i, int j, int n)
+bool	ft_check_valid(int **solution, int i, int j, int n)
 {
-	if (ft_rule_2(solution, i, j, n)) // rule 2 or rule 3 is not violated, return true
+	if (ft_rule_2(solution, i, j, n))
 	{
 		return (true);
 	}
-	else // otherwise, return false
+	else
 	{
 		return (false);
 	}
 }
 
-
-bool	ft_get_solution(int read_in[4][4], int **solution) // the backtraking algorithm here!
+bool	ft_get_solution(int read_in[4][4], int **solution)
 {
 	int n;
 	int i;
 	int j;
 
 	n = 1;
-	if (ft_filled(solution, &i, &j)) // return true if filled; otherwise changes i,j to the first unfilled location
+	if (ft_filled(solution, &i, &j))
 	{
 		return (true);
 	}
